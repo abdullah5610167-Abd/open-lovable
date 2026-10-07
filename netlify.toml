@@ -1,0 +1,8 @@
+[build]
+command = "bun run build"
+publish = ".next"
+
+[dev]
+command = "bun run dev"
+targetPort = 3000
+port = 8889
