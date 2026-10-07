@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Roboto_Mono } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
+import { Toaster } from '@/components/ui/shadcn/toast';
 
 const inter = Inter({ 
   subsets: ["latin"],
@@ -39,6 +40,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${inter.variable} ${geistSans.variable} ${geistMono.variable} ${robotoMono.variable} font-sans`}>
         {children}
+        <Toaster />
       </body>
     </html>
   );

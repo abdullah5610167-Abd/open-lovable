@@ -204,13 +204,17 @@ export default function HomePage() {
         body: JSON.stringify({ query: searchQuery }),
       });
 
-      if (response.ok) {
-        const data = await response.json();
-        setSearchResults(data.results || []);
-        setShowSearchTiles(true);
+      const data = await response.json();
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to perform search');
       }
+      setSearchResults(data.results || []);
+      setShowSearchTiles(true);
     } catch (error) {
       console.error('Search error:', error);
+      setSearchResults([]);
+      setShowSearchTiles(false);
+      toast.error(error instanceof Error ? error.message : 'Failed to perform search');
     } finally {
       setIsSearching(false);
     }

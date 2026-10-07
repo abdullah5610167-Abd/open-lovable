@@ -51,12 +51,12 @@ export const appConfig = {
   // AI Model Configuration
   ai: {
     // Default AI model
-    defaultModel: 'google/gemini-3-pro-preview',
+    defaultModel: 'groq/openai/gpt-oss-120b',
     
     // Available models
     availableModels: [
       'openai/gpt-5',
-      'moonshotai/kimi-k2-instruct-0905',
+      'groq/openai/gpt-oss-120b',
       'anthropic/claude-sonnet-4-20250514',
       'google/gemini-3-pro-preview'
     ],
@@ -64,16 +64,25 @@ export const appConfig = {
     // Model display names
     modelDisplayNames: {
       'openai/gpt-5': 'GPT-5',
-      'moonshotai/kimi-k2-instruct-0905': 'Kimi K2 (Groq)',
+      'groq/openai/gpt-oss-120b': 'GPT-OSS 120B (Groq)',
+      'moonshotai/kimi-k2-instruct-0905': 'GPT-OSS 120B (Groq)',
       'anthropic/claude-sonnet-4-20250514': 'Sonnet 4',
       'google/gemini-3-pro-preview': 'Gemini 3 Pro (Preview)'
     } as Record<string, string>,
     
     // Model API configuration
     modelApiConfig: {
+      'groq/openai/gpt-oss-120b': {
+        provider: 'groq',
+        model: 'openai/gpt-oss-120b'
+      },
+      'openai/gpt-oss-20b': {
+        provider: 'groq',
+        model: 'openai/gpt-oss-20b'
+      },
       'moonshotai/kimi-k2-instruct-0905': {
         provider: 'groq',
-        model: 'moonshotai/kimi-k2-instruct-0905'
+        model: 'openai/gpt-oss-120b'
       }
     },
     
